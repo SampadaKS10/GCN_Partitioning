@@ -12,23 +12,35 @@ To handle large graphs, the Normalized Cuts loss function is implemented using s
 
 The Normalized Cuts loss function \( \mathbf{Z} \) is defined as:
 
-\[ \mathbf{Z} = \left(\frac{\mathbf{Y}}{\Gamma}\right)(1 - \mathbf{Y})^T \circ \mathbf{A} \]
+\[ 
+\mathbf{Z} = \left(\frac{\mathbf{Y}}{\Gamma}\right)(1 - \mathbf{Y})^T \circ \mathbf{A} 
+\]
 
 where \( Y_{ij} \) is the probability of node \( i \) being in partition \( j \).
 
-\[ L = \sum_{\Delta_{m} \neq 0} Z_{m} \]
+\[ 
+L = \sum_{\Delta_{m} \neq 0} Z_{m} 
+\]
 
 Then the gradients can be calculated by the equations:
 
-\[ \frac{\partial z_{xi}}{\partial y_{ij}} = A_{i\alpha} \left( \frac{\Gamma_j (1 - y_{\alpha j}) - y_{ij} (1 - y_{ij}) D_i}{\Gamma_j^2} \right) \]
+\[ 
+\frac{\partial z_{xi}}{\partial y_{ij}} = A_{i\alpha} \left( \frac{\Gamma_j (1 - y_{\alpha j}) - y_{ij} (1 - y_{ij}) D_i}{\Gamma_j^2} \right) 
+\]
 
-\[ \frac{\partial z_{\alpha i}}{\partial y_{ij}} = A_{i\alpha} \left( \frac{\Gamma_j (1 - y_{ij}) - y_{\alpha j} (1 - y_{\alpha j}) D_i}{\Gamma_j^2} \right) \]
+\[ 
+\frac{\partial z_{\alpha i}}{\partial y_{ij}} = A_{i\alpha} \left( \frac{\Gamma_j (1 - y_{ij}) - y_{\alpha j} (1 - y_{\alpha j}) D_i}{\Gamma_j^2} \right) 
+\]
 
-\[ \frac{\partial z_{\alpha i}}{\partial y_{ij}} = A_{i\alpha} \left( \frac{(1 - y_{\alpha j}) y_{ij} D_i}{\Gamma_j^2} \right); \; i', \alpha \neq i \]
+\[ 
+\frac{\partial z_{\alpha i}}{\partial y_{ij}} = A_{i\alpha} \left( \frac{(1 - y_{\alpha j}) y_{ij} D_i}{\Gamma_j^2} \right); \; i', \alpha \neq i 
+\]
 
 The Balance loss is calculated with different sums and a square, relying on autograd to compute the backloss. The loss is:
 
-\[ L = \sum_{\text{reduce\_sum}} \left( \mathbf{1}^T \mathbf{Y} - \frac{n}{g} \right)^2 \]
+\[ 
+L = \sum_{\text{reduce\_sum}} \left( \mathbf{1}^T \mathbf{Y} - \frac{n}{g} \right)^2 
+\]
 
 where \( n \) is the number of vertices and \( g \) is the number of partitions.
 

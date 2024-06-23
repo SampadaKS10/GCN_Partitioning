@@ -68,5 +68,3 @@ Check the provided Jupyter notebook for detailed instructions on how to use the 
 
 - GraphSAGE: GraphSAGE has not yet been integrated into the framework. You can find more about GraphSAGE [here](https://github.com/williamleif/GraphSAGE).
 
-For more details, please refer to our [GitHub repository](https://github.com/saurabhdash/GCN_Partitioning).
-

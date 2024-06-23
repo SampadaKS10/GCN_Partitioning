@@ -39,7 +39,7 @@ $$
 The Balance loss is calculated with different sums and a square, relying on autograd to compute the backloss. The loss is:
 
 $$
-L = \sum_{\text{reduce\_sum}} \left( \mathbf{1}^T \mathbf{Y} - \frac{n}{g} \right)^2
+L = \sum_{\mathrm{reduce\_sum}} \left( \mathbf{1}^T \mathbf{Y} - \frac{n}{g} \right)^2
 $$
 
 where \( n \) is the number of vertices and \( g \) is the number of partitions.
